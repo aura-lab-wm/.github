@@ -77,7 +77,7 @@ A hook that exists only to enforce `design-kit` is **identity**, not ops. Put it
 
 | Room | Repos |
 |---|---|
-| research | `swebench-dominance` *(rename to `research-swebench-dominance`)* |
+| research | `research-swebench-dominance` |
 | teaching | `teaching-coll100-codelab`, `teaching-coll100-2026`, `teaching-genai4se-2026` + netid copies |
 | products | `project-rocco-code`, `project-rocco-web`, `project-rocco-student-kit`, `project-auracron` |
 | people | `student-aura-*` |
