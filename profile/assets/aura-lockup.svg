@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AURA Lab — logomark + wordmark
+  · 4 arcs (A · U · R · A) forming an aura around a serif "A"
+  · Wordmark: "AURA" serif + "LAB" mono small-caps
+  · Palette: W&M deep + green + phosphor mint + gold
+  · Works on light or dark backgrounds — fills use opacity so the
+    glyph reads on dark, and the wordmark uses currentColor for theming
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 110" role="img" aria-label="AURA Lab">
+  <defs>
+    <linearGradient id="lockW-auraA" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0c5a3a"/>
+      <stop offset="100%" stop-color="#178a5a"/>
+    </linearGradient>
+    <linearGradient id="lockW-auraU" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#178a5a"/>
+      <stop offset="100%" stop-color="#1c8a5a"/>
+    </linearGradient>
+    <linearGradient id="lockW-auraR" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0%" stop-color="#1c8a5a"/>
+      <stop offset="100%" stop-color="#5bbf91"/>
+    </linearGradient>
+    <linearGradient id="lockW-auraA2" x1="1" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#5bbf91"/>
+      <stop offset="100%" stop-color="#B9975B"/>
+    </linearGradient>
+    <!-- soft glow for the inner letter -->
+    <radialGradient id="lockW-centerGlow" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0%" stop-color="#a4ecc4" stop-opacity=".22"/>
+      <stop offset="70%" stop-color="#a4ecc4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ───── GLYPH (center on x=55) ───── -->
+  <g transform="translate(55, 55)">
+    <!-- centered glow disc -->
+    <circle r="40" fill="url(#lockW-centerGlow)"/>
+
+    <!-- 4 thread arcs: each spans 80° with a 10° gap.
+         Stroke = colored, fill = none.
+         Order clockwise starting from top: A · U · R · A -->
+    <g fill="none" stroke-width="6" stroke-linecap="round">
+      <!-- A : north arc (305° → 25°) -->
+      <path d="M -20.6 -36.4 A 42 42 0 0 1  20.6 -36.4" stroke="url(#lockW-auraA)"/>
+      <!-- U : east arc  ( 35° → 145°) -->
+      <path d="M  36.4 -20.6 A 42 42 0 0 1  36.4  20.6" stroke="url(#lockW-auraU)"/>
+      <!-- R : south arc (155° → 265°) -->
+      <path d="M  20.6  36.4 A 42 42 0 0 1 -20.6  36.4" stroke="url(#lockW-auraR)"/>
+      <!-- A : west arc  (275° → 25°) -->
+      <path d="M -36.4  20.6 A 42 42 0 0 1 -36.4 -20.6" stroke="url(#lockW-auraA2)"/>
+    </g>
+
+    <!-- thin gold compliance dotted ring -->
+    <circle r="48" fill="none" stroke="#B9975B" stroke-width="0.6" stroke-dasharray="0.6 1.8" opacity=".7"/>
+
+    <!-- 4 tiny letter labels at the cardinal arc midpoints -->
+    <g font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" font-weight="700" letter-spacing="1.2" fill="#115740">
+      <text x="0"   y="-50" text-anchor="middle">A</text>
+      <text x="52"  y="2"   text-anchor="middle">U</text>
+      <text x="0"   y="56"  text-anchor="middle">R</text>
+      <text x="-52" y="2"   text-anchor="middle">A</text>
+    </g>
+
+    <!-- center serif "A" -->
+    <text x="0" y="11" text-anchor="middle"
+          font-family="Source Serif 4, Iowan Old Style, Georgia, serif"
+          font-weight="600" font-size="46" fill="#115740" letter-spacing="-2">A</text>
+  </g>
+
+  <!-- ───── WORDMARK (right of glyph) ───── -->
+  <g transform="translate(120, 0)">
+    <!-- AURA — bold serif -->
+    <text x="0" y="60"
+          font-family="Source Serif 4, Iowan Old Style, Georgia, serif"
+          font-weight="600" font-size="48"
+          fill="#115740" letter-spacing="-1.2">AURA</text>
+
+    <!-- thin gold rule under wordmark -->
+    <line x1="0" x2="170" y1="72" y2="72" stroke="#B9975B" stroke-width="0.8" opacity=".7"/>
+
+    <!-- subtitle: LAB · AI · Understanding · Reliable · Automation -->
+    <text x="0" y="86"
+          font-family="JetBrains Mono, ui-monospace, monospace"
+          font-size="8" font-weight="600" letter-spacing="2.4"
+          fill="#115740" opacity=".75">LAB</text>
+    <text x="34" y="86"
+          font-family="JetBrains Mono, ui-monospace, monospace"
+          font-size="7" font-weight="400" letter-spacing="1.6"
+          fill="#115740" opacity=".55">·  AI · UNDERSTANDING · RELIABLE · AUTOMATION</text>
+  </g>
+</svg>
