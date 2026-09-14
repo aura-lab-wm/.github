@@ -38,7 +38,7 @@ COLL 100 · GenAI4SE. The platform is [codelab.sh](https://github.com/aura-lab-w
 
 ### People
 
-Ph.D. — [Afia Farjana](https://github.com/aura-lab-wm/student-aura-afia-farjana) · [Saima Afrin](https://github.com/aura-lab-wm/student-aura-saima-afrin) · [Zahidul Haque](https://github.com/aura-lab-wm/student-aura-zahidul-haque) · [Aya Garryyeva](https://github.com/aura-lab-wm/student-aura-aya-garryyeva) · [Joseph Call](https://github.com/aura-lab-wm/student-aura-joseph-call) · [Chris Cheng](https://github.com/aura-lab-wm/student-aura-chris-cheng) · [Khai Nguyen](https://github.com/aura-lab-wm/student-aura-khai-nguyen) (alumni)
+Ph.D. — [Afia Farjana](https://github.com/aura-lab-wm/student-aura-afia-farjana) · [Saima Afrin](https://github.com/aura-lab-wm/student-aura-saima-afrin) · [Zahidul Haque](https://github.com/aura-lab-wm/student-aura-zahidul-haque) · [Aya Garryyeva](https://github.com/aura-lab-wm/student-aura-aya-garryyeva) · [Joseph Call](https://github.com/aura-lab-wm/student-aura-joseph-call) · [Chris Cheng](https://github.com/aura-lab-wm/student-aura-chris-cheng)
 
 ---
 
