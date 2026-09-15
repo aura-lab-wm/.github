@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 148" width="620" height="148">
+  <rect width="620" height="148" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="619" height="147" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
+  <text x="28" y="36" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" letter-spacing="2.4" fill="#00713f">SYSTEMS</text>
+  <text x="28" y="68" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Rocco · AuraCron · design-kit</text>
+  <text x="28" y="98" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">Lab GPU agents, the research-lab OS, and the Sightline</text>
+  <text x="28" y="118" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">visual language. Built here, used here.</text>
+</svg>
