@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" width="280" height="200">
-  <rect width="280" height="200" fill="#ffffff"/>
-  <rect x="0.5" y="0.5" width="279" height="199" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
-  <rect x="0" y="0" width="280" height="4" fill="#009051"/>
-  <text x="20" y="40" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" letter-spacing="2" fill="#009051">02</text>
-  <text x="20" y="78" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Neurosymbolic</text>
-  <text x="20" y="100" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Reasoning &amp;</text>
-  <text x="20" y="122" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Interpretability</text>
-  <text x="244" y="176" font-family="Archivo, Helvetica Neue, sans-serif" font-size="20" fill="#009051">→</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 360" width="280" height="360">
+  <rect width="280" height="360" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="279" height="359" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
+  <rect x="0" y="0" width="280" height="5" fill="#009051"/>
+  <text x="22" y="52" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" letter-spacing="2.4" fill="#009051">02</text>
+  <text x="22" y="108" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="800" font-size="22" fill="#0b0f0d">Neurosymbolic</text>
+  <text x="22" y="136" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="800" font-size="22" fill="#0b0f0d">Program</text>
+  <text x="22" y="164" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="800" font-size="22" fill="#0b0f0d">Reasoning &amp;</text>
+  <text x="22" y="192" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="800" font-size="22" fill="#0b0f0d">Interpretability</text>
+  <text x="22" y="240" font-family="Archivo, Helvetica Neue, sans-serif" font-size="14" fill="#4e544f">Pairing neural code models</text>
+  <text x="22" y="260" font-family="Archivo, Helvetica Neue, sans-serif" font-size="14" fill="#4e544f">with grammars, types, and</text>
+  <text x="22" y="280" font-family="Archivo, Helvetica Neue, sans-serif" font-size="14" fill="#4e544f">analysis — explanations you</text>
+  <text x="22" y="300" font-family="Archivo, Helvetica Neue, sans-serif" font-size="14" fill="#4e544f">can check, not merely read.</text>
+  <text x="236" y="336" font-family="Archivo, Helvetica Neue, sans-serif" font-size="22" fill="#009051">→</text>
 </svg>
