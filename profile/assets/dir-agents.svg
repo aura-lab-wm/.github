@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 148" width="620" height="148">
+  <rect width="620" height="148" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="619" height="147" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
+  <rect x="0" y="0" width="4" height="148" fill="#17485a"/>
+  <text x="28" y="44" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">AI Agents &amp; Task-Aware Automation</text>
+  <text x="28" y="76" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">Automation that knows which job it has been given — judged on</text>
+  <text x="28" y="96" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">whether the task was finished, not whether a step looked right.</text>
+  <text x="580" y="84" font-family="Archivo, Helvetica Neue, sans-serif" font-size="22" fill="#17485a">→</text>
+</svg>
