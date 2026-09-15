@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://auralab.sh">
-    <img src="assets/hero.png" alt="AURA Lab — AI for Understandable and Responsible Automation in Software Engineering. William &amp; Mary, Department of Computer Science. 29 publications, 21 peer-reviewed, 9 lab members, founded Fall 2024." width="100%">
+    <img src="assets/hero.png" alt="AURA Lab — AI for Understandable and Responsible Automation in Software Engineering. William &amp; Mary, Department of Computer Science." width="100%">
   </a>
 </p>
 
