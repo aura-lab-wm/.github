@@ -16,25 +16,33 @@
   <sub>FOUR RESEARCH DIRECTIONS</sub>
 </p>
 
-<p align="center">
-  <a href="https://auralab.sh/research/efficient-models/"><img src="assets/dir-efficient.png" alt="Resource-Efficient Foundation Models for Code" width="100%"></a>
-</p>
-<p align="center">
-  <a href="https://auralab.sh/research/neurosymbolic-interpretability/"><img src="assets/dir-neuro.png" alt="Neurosymbolic Program Reasoning and Interpretability" width="100%"></a>
-</p>
-<p align="center">
-  <a href="https://auralab.sh/research/reliable-evaluation/"><img src="assets/dir-eval.png" alt="Reliability, Causality and Rigorous Evaluation" width="100%"></a>
-</p>
-<p align="center">
-  <a href="https://auralab.sh/research/agents-lifecycle/"><img src="assets/dir-agents.png" alt="AI Agents and Task-Aware Automation" width="100%"></a>
-</p>
+<table>
+  <tr>
+    <td width="25%" valign="top">
+      <a href="https://auralab.sh/research/efficient-models/"><img src="assets/dir-efficient.png" alt="Resource-Efficient Foundation Models for Code" /></a>
+    </td>
+    <td width="25%" valign="top">
+      <a href="https://auralab.sh/research/neurosymbolic-interpretability/"><img src="assets/dir-neuro.png" alt="Neurosymbolic Program Reasoning and Interpretability" /></a>
+    </td>
+    <td width="25%" valign="top">
+      <a href="https://auralab.sh/research/reliable-evaluation/"><img src="assets/dir-eval.png" alt="Reliability, Causality and Rigorous Evaluation" /></a>
+    </td>
+    <td width="25%" valign="top">
+      <a href="https://auralab.sh/research/agents-lifecycle/"><img src="assets/dir-agents.png" alt="AI Agents and Task-Aware Automation" /></a>
+    </td>
+  </tr>
+</table>
 
-<p align="center">
-  <a href="https://github.com/aura-lab-wm/teaching-coll100-codelab"><img src="assets/lane-teaching.png" alt="Teaching — COLL 100 and GenAI for Software Engineering. The platform is codelab.sh." width="100%"></a>
-</p>
-<p align="center">
-  <a href="https://github.com/aura-lab-wm/project-rocco-code"><img src="assets/lane-systems.png" alt="Systems — Rocco, AuraCron, design-kit." width="100%"></a>
-</p>
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/aura-lab-wm/teaching-coll100-codelab"><img src="assets/lane-teaching.png" alt="Teaching — COLL 100 and GenAI for Software Engineering. The platform is codelab.sh." /></a>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/aura-lab-wm/project-rocco-code"><img src="assets/lane-systems.png" alt="Systems — Rocco, AuraCron, design-kit." /></a>
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <sub>PH.D.</sub><br>

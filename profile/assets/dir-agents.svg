@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 148" width="620" height="148">
-  <rect width="620" height="148" fill="#ffffff"/>
-  <rect x="0.5" y="0.5" width="619" height="147" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
-  <rect x="0" y="0" width="4" height="148" fill="#17485a"/>
-  <text x="28" y="44" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">AI Agents &amp; Task-Aware Automation</text>
-  <text x="28" y="76" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">Automation that knows which job it has been given — judged on</text>
-  <text x="28" y="96" font-family="Archivo, Helvetica Neue, sans-serif" font-size="13.5" fill="#4e544f">whether the task was finished, not whether a step looked right.</text>
-  <text x="580" y="84" font-family="Archivo, Helvetica Neue, sans-serif" font-size="22" fill="#17485a">→</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" width="280" height="200">
+  <rect width="280" height="200" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="279" height="199" fill="none" stroke="#0b0f0d" stroke-opacity="0.12"/>
+  <rect x="0" y="0" width="280" height="4" fill="#17485a"/>
+  <text x="20" y="40" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" letter-spacing="2" fill="#17485a">04</text>
+  <text x="20" y="78" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">AI Agents &amp;</text>
+  <text x="20" y="100" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Task-Aware</text>
+  <text x="20" y="122" font-family="Archivo, Helvetica Neue, sans-serif" font-weight="700" font-size="16" fill="#0b0f0d">Automation</text>
+  <text x="244" y="176" font-family="Archivo, Helvetica Neue, sans-serif" font-size="20" fill="#17485a">→</text>
 </svg>
