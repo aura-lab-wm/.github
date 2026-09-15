@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="1280" height="620" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500" role="img"
      aria-label="AURA Lab — AI for Understandable and Responsible Automation in Software Engineering">
-  <rect width="1280" height="620" fill="#ffffff"/>
+  <rect width="1280" height="500" fill="#ffffff"/>
   <!-- kicker -->
   <circle cx="48" cy="42" r="4" fill="#c2410c"/>
   <text x="64" y="46"
@@ -29,20 +29,4 @@
   <text x="40" y="456" font-family="Archivo, Helvetica Neue, sans-serif" font-size="18" fill="#333935">
     to run, and reliable enough to be accountable when they fail.
   </text>
-
-  <line x1="40" y1="492" x2="760" y2="492" stroke="#0b0f0d" stroke-width="1.25"/>
-
-  <!-- stats -->
-  <g font-family="Archivo, Helvetica Neue, sans-serif" font-weight="800" fill="#0b0f0d">
-    <text x="40" y="548" font-size="44">29</text>
-    <text x="220" y="548" font-size="44">21</text>
-    <text x="400" y="548" font-size="44">9</text>
-    <text x="560" y="548" font-size="44">2024</text>
-  </g>
-  <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" letter-spacing="1.8" fill="#666d66">
-    <text x="40" y="572">PUBLICATIONS</text>
-    <text x="220" y="572">PEER-REVIEWED</text>
-    <text x="400" y="572">LAB MEMBERS</text>
-    <text x="560" y="572">FOUNDED FALL</text>
-  </g>
 </svg>
