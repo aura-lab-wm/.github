@@ -84,3 +84,41 @@ research → teaching → products → people → identity → ops
 Full rules: **[MANIFESTO.md](MANIFESTO.md)**.
 
 </details>
+
+<!-- REPO-MAP:START -->
+
+<p align="center"><sub>REPOSITORY MAP · 46 repos · 6 public · generated 2026-09-18 21:11 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
+
+```mermaid
+flowchart LR
+  ORG["aura-lab-wm<br/>46 repos"]
+  ORG --> PEOPLE["people<br/>7 repos · 7 private"]
+  ORG --> RESEARCH["research<br/>1 repo · 1 private"]
+  ORG --> TEACHING["teaching<br/>22 repos · 22 private"]
+  ORG --> PRODUCTS["products<br/>4 repos · 2 public · 2 private"]
+  PRODUCTS --> PRODUCTS_0["project-rocco-student-kit"]
+  PRODUCTS --> PRODUCTS_1["project-rocco-web"]
+  ORG --> IDENTITY["identity<br/>5 repos · 1 public · 4 private"]
+  IDENTITY --> IDENTITY_0[".github"]
+  ORG --> OPS["ops<br/>6 repos · 3 public · 3 private"]
+  OPS --> OPS_0["ops-phd-defence"]
+  OPS --> OPS_1["ops-telemetrify"]
+  OPS --> OPS_2["ops-toast"]
+  ORG --> UNFILED["unfiled<br/>1 repo · 1 private"]
+```
+
+| Room | Repos | Public | Private | Last push |
+|---|---:|---|---:|---|
+| **people** | 7 | — | 7 | 2026-09-15 |
+| **research** | 1 | — | 1 | 2026-09-13 |
+| **teaching** | 22 | — | 22 | 2026-09-18 |
+| **products** | 4 | [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web) | 2 | 2026-09-12 |
+| **identity** | 5 | [`.github`](https://github.com/aura-lab-wm/.github) | 4 | 2026-09-18 |
+| **ops** | 6 | [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast) | 3 | 2026-09-15 |
+| **unfiled** | 1 | — | 1 | 2026-09-17 |
+
+<sub><b>unfiled</b> names match no rule in the naming table — file them or extend the table.</sub>
+
+<sub>Regenerated hourly by <code>.github/workflows/repo-map.yml</code>. Private repositories are counted, never named.</sub>
+
+<!-- REPO-MAP:END -->
