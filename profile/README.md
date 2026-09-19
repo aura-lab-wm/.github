@@ -87,11 +87,11 @@ Full rules: **[MANIFESTO.md](MANIFESTO.md)**.
 
 <!-- REPO-MAP:START -->
 
-<p align="center"><sub>REPOSITORY MAP · 46 repos · 6 public · generated 2026-09-18 21:11 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
+<p align="center"><sub>REPOSITORY MAP · 47 repos · 6 public · generated 2026-09-19 01:18 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
 
 ```mermaid
 flowchart LR
-  ORG["aura-lab-wm<br/>46 repos"]
+  ORG["aura-lab-wm<br/>47 repos"]
   ORG --> PEOPLE["people<br/>7 repos · 7 private"]
   ORG --> RESEARCH["research<br/>1 repo · 1 private"]
   ORG --> TEACHING["teaching<br/>22 repos · 22 private"]
@@ -104,7 +104,7 @@ flowchart LR
   OPS --> OPS_0["ops-phd-defence"]
   OPS --> OPS_1["ops-telemetrify"]
   OPS --> OPS_2["ops-toast"]
-  ORG --> UNFILED["unfiled<br/>1 repo · 1 private"]
+  ORG --> UNFILED["unfiled<br/>2 repos · 2 private"]
 ```
 
 | Room | Repos | Public | Private | Last push |
@@ -115,7 +115,7 @@ flowchart LR
 | **products** | 4 | [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web) | 2 | 2026-09-12 |
 | **identity** | 5 | [`.github`](https://github.com/aura-lab-wm/.github) | 4 | 2026-09-18 |
 | **ops** | 6 | [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast) | 3 | 2026-09-15 |
-| **unfiled** | 1 | — | 1 | 2026-09-17 |
+| **unfiled** | 2 | — | 2 | 2026-09-18 |
 
 <sub><b>unfiled</b> names match no rule in the naming table — file them or extend the table.</sub>
 
