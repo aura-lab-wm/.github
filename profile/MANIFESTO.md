@@ -92,7 +92,7 @@ A hook that exists only to enforce `design-kit` is **identity**, not ops.
 | Room | Repos |
 |---|---|
 | research | [`research-swebench-dominance`](https://github.com/aura-lab-wm/research-swebench-dominance) |
-| teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + netid copies |
+| teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + netid copies, [`teaching-genai4se-2026-wifimap`](https://github.com/aura-lab-wm/teaching-genai4se-2026-wifimap) (read-only link from each student repo) |
 | products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron) |
 | people | `student-aura-*` |
 | identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design-kit`](https://github.com/aura-lab-wm/design-kit), [`design-kit-logos`](https://github.com/aura-lab-wm/design-kit-logos), [`design-slides`](https://github.com/aura-lab-wm/design-slides) |
