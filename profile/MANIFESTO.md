@@ -74,6 +74,7 @@ Today: lecture skill → [`design-slides`](https://github.com/aura-lab-wm/design
 ```
 ops/skills           skills
 ops/reimbursement    ops-reimbursement
+ops/receipts         ops-receipts
 ops/telemetrify      ops-telemetrify
 ops/toast            ops-toast
 ops/key-agent        ops-key-agent
@@ -98,4 +99,4 @@ A hook that exists only to enforce `design-kit` is **identity**, not ops.
 | products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron), [`harnesslab`](https://github.com/aura-lab-wm/harnesslab) ([traceharness.dev](https://traceharness.dev)) |
 | people | `student-aura-*` |
 | identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design-kit`](https://github.com/aura-lab-wm/design-kit), [`design-kit-logos`](https://github.com/aura-lab-wm/design-kit-logos), [`design-slides`](https://github.com/aura-lab-wm/design-slides), [`.github`](https://github.com/aura-lab-wm/.github) |
-| ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`wm-daily-companion`](https://github.com/aura-lab-wm/wm-daily-companion) |
+| ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-receipts`](https://github.com/aura-lab-wm/ops-receipts) |
