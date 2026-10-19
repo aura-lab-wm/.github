@@ -2,9 +2,17 @@
 
 Run: python3 -m unittest discover -s scripts -q
 """
+import contextlib
+import io
+import json
+import os
+from pathlib import Path
+import tempfile
 import unittest
+from unittest.mock import patch
+import urllib.error
 
-from build_repo_map import UNFILED, check_no_private_leak, group, render, room_of, splice
+from build_repo_map import UNFILED, check_no_private_leak, fetch_repos, group, main, render, room_of, splice
 
 ORG = "aura-lab-wm"
 
@@ -98,7 +106,94 @@ class AllMode(unittest.TestCase):
         self.assertIn("research-swebench-dominance", block)
 
 
+class PublicScope(unittest.TestCase):
+    def test_public_scope_does_not_claim_total_or_private_counts(self):
+        block = render(ORG, FIXTURE, "public", "2026-10-19 01:00 UTC", "public")
+        self.assertIn("PUBLIC REPOSITORY MAP · 3 public repos", block)
+        self.assertIn("private repository counts are not included", block)
+        self.assertNotIn("| Private |", block)
+        self.assertNotIn("12 repos", block)
+        self.assertNotIn("student-aura-joseph-call", block)
+
+    def test_publishing_repo_commit_does_not_move_last_push_date(self):
+        before = render(ORG, FIXTURE, "public", "same", "public")
+        changed = [{**r, "pushed_at": "2026-10-20T10:00:00Z"} if r["name"] == ".github" else r for r in FIXTURE]
+        self.assertEqual(before, render(ORG, changed, "public", "same", "public"))
+
+    def test_fetch_scope_is_preserved_on_every_page(self):
+        first = [repo(f"project-public-{i}", private=False) for i in range(100)]
+        with patch("build_repo_map.urllib.request.urlopen", side_effect=[
+            io.BytesIO(json.dumps(first).encode()), io.BytesIO(b"[]"),
+        ]) as request:
+            self.assertEqual(len(fetch_repos(ORG, "", "public")), 100)
+        for call in request.call_args_list:
+            self.assertIn("type=public", call.args[0].full_url)
+            self.assertNotIn("Authorization", call.args[0].headers)
+        self.assertIn("page=2", request.call_args_list[1].args[0].full_url)
+
+    def test_leak_failure_does_not_repeat_private_names_in_public_logs(self):
+        with self.assertRaises(SystemExit) as error:
+            check_no_private_leak("student-aura-joseph-call", FIXTURE)
+        self.assertNotIn("student-aura-joseph-call", str(error.exception))
+
+    def test_missing_optional_token_still_generates_public_map(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "README.md"
+            path.write_text("original intro\n")
+            with patch.dict(os.environ, {}, clear=True), patch("sys.argv", ["map", "--write", str(path)]), \
+                 patch("build_repo_map.fetch_repos", return_value=FIXTURE) as fetch, \
+                 contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(main(), 0)
+            fetch.assert_called_once_with(ORG, "", "public")
+            self.assertTrue(path.read_text().startswith("original intro\n"))
+            self.assertIn("3 public repos", path.read_text())
+
+    def test_all_scope_requires_token_and_preserves_existing_map(self):
+        with patch.dict(os.environ, {}, clear=True), patch("sys.argv", ["map", "--scope", "all"]), \
+             patch("build_repo_map.fetch_repos") as fetch, contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(main(), 1)
+            fetch.assert_not_called()
+
+    def test_all_scope_retains_private_counts_without_logging_private_names(self):
+        output, errors = io.StringIO(), io.StringIO()
+        with patch.dict(os.environ, {"GITHUB_TOKEN": "test-only"}, clear=True), \
+             patch("sys.argv", ["map", "--scope", "all"]), \
+             patch("build_repo_map.fetch_repos", return_value=FIXTURE) as fetch, \
+             contextlib.redirect_stdout(output), contextlib.redirect_stderr(errors):
+            self.assertEqual(main(), 0)
+        fetch.assert_called_once_with(ORG, "test-only", "all")
+        self.assertIn("12 repos", output.getvalue())
+        self.assertIn("unfiled repositories: 1", errors.getvalue())
+        for r in FIXTURE:
+            if r["private"]:
+                self.assertNotIn(r["name"], output.getvalue() + errors.getvalue())
+
+    def test_api_failure_does_not_replace_the_existing_map(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "README.md"
+            path.write_text("last good map\n")
+            with patch("sys.argv", ["map", "--write", str(path)]), \
+                 patch("build_repo_map.fetch_repos", side_effect=urllib.error.HTTPError("url", 401, "Unauthorized", {}, None)), \
+                 contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(main(), 1)
+            self.assertEqual(path.read_text(), "last good map\n")
+
+
 class Splice(unittest.TestCase):
+    def test_another_hour_does_not_rewrite_an_unchanged_map(self):
+        before = render(ORG, FIXTURE, "public", "2026-10-19 01:00 UTC", "public")
+        after = render(ORG, FIXTURE, "public", "2026-10-19 02:00 UTC", "public")
+        doc = "intro\n" + before + "\ntail\n"
+        self.assertEqual(splice(doc, after), doc)
+
+    def test_changed_repositories_update_the_map_and_timestamp(self):
+        before = render(ORG, FIXTURE, "public", "2026-10-19 01:00 UTC", "public")
+        after = render(ORG, FIXTURE + [repo("project-new", private=False)], "public", "2026-10-19 02:00 UTC", "public")
+        result = splice("intro\n" + before + "\ntail\n", after)
+        self.assertIn("project-new", result)
+        self.assertIn("2026-10-19 02:00 UTC", result)
+        self.assertNotIn("2026-10-19 01:00 UTC", result)
+
     def test_replaces_only_the_marked_block(self):
         doc = "head\n<!-- REPO-MAP:START -->\nold\n<!-- REPO-MAP:END -->\ntail\n"
         out = splice(doc, "<!-- REPO-MAP:START -->\nnew\n<!-- REPO-MAP:END -->")
