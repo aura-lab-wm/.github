@@ -87,7 +87,7 @@ Full rules: **[MANIFESTO.md](MANIFESTO.md)**.
 
 <!-- REPO-MAP:START -->
 
-<p align="center"><sub>PUBLIC REPOSITORY MAP · 7 public repos · generated 2026-10-19 13:34 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
+<p align="center"><sub>PUBLIC REPOSITORY MAP · 7 public repos · generated 2026-10-19 18:36 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
 
 ```mermaid
 flowchart LR
@@ -102,7 +102,7 @@ flowchart LR
   OPS --> OPS_1["ops-telemetrify"]
   OPS --> OPS_2["ops-toast"]
   ORG --> UNFILED["unfiled<br/>1 repo · 1 public"]
-  UNFILED --> UNFILED_0["harnesslab-workshop"]
+  UNFILED --> UNFILED_0["traceharness"]
 ```
 
 | Room | Public repos | Repositories | Last push |
@@ -110,7 +110,7 @@ flowchart LR
 | **products** | 2 | [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web) | 2026-06-08 |
 | **identity** | 1 | [`.github`](https://github.com/aura-lab-wm/.github) | — |
 | **ops** | 3 | [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast) | 2026-07-04 |
-| **unfiled** | 1 | [`harnesslab-workshop`](https://github.com/aura-lab-wm/harnesslab-workshop) | 2026-10-19 |
+| **unfiled** | 1 | [`traceharness`](https://github.com/aura-lab-wm/traceharness) | 2026-10-19 |
 
 <sub><b>unfiled</b> names match no rule in the naming table — file them or extend the table.</sub>
 
