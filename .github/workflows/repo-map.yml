@@ -9,32 +9,46 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [repo-map]
+  pull_request:
+    paths:
+      - '.github/workflows/repo-map.yml'
+      - 'scripts/**'
 
 concurrency:
-  group: repo-map
-  cancel-in-progress: true
+  group: repo-map-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
-  contents: write             # the job commits the regenerated block, nothing else
+  contents: read
 
 jobs:
-  map:
+  check:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-
       - name: Check the generator before trusting it with a public file
         run: python3 -m unittest discover -s scripts -q
 
+  map:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
       - name: Regenerate the map
         env:
-          # A token that can SEE private repos is what makes the counts right. Without it the API
-          # returns public repos only and the map would silently under-count, so the step fails
-          # instead: add a fine-grained org token with "Metadata: read" as the ORG_MAP_TOKEN secret.
-          GITHUB_TOKEN: ${{ secrets.ORG_MAP_TOKEN }}
+          # Full counts are optional. The built-in token supports the explicitly public-only view.
+          GITHUB_TOKEN: ${{ secrets.ORG_MAP_TOKEN || github.token }}
+          REPO_SCOPE: ${{ secrets.ORG_MAP_TOKEN != '' && 'all' || 'public' }}
         run: |
-          test -n "$GITHUB_TOKEN" || { echo "::error::ORG_MAP_TOKEN is not set — private repos would be invisible and the counts wrong"; exit 1; }
-          python3 scripts/build_repo_map.py --org "${GITHUB_REPOSITORY%%/*}" --write profile/README.md
+          if [ "$REPO_SCOPE" = public ]; then
+            echo 'Public repository map: private repository counts are excluded because ORG_MAP_TOKEN is not configured.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          python3 scripts/build_repo_map.py --org "${GITHUB_REPOSITORY%%/*}" --scope "$REPO_SCOPE" --write profile/README.md
 
       - name: Commit only when the map actually moved
         run: |
