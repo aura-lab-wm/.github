@@ -44,7 +44,8 @@ Path with `/` becomes `-` on GitHub.
 |---|---|
 | `research/<slug>` | `research-<slug>` |
 | `teaching/<course>/<year>` | `teaching-<course>-<year>` |
-| `teaching/<course>/<year>/<netid>` | `teaching-<course>-<year>-<netid>` |
+| `teaching/<course>/<year>/<assignment>/<netid>` | `teaching-<course>-<year>-<assignment>-<netid>` |
+| `teaching/<course>/<year>/final/<team>` | `teaching-<course>-<year>-final-<team>` |
 | `teaching/coll100/codelab` | `teaching-coll100-codelab` |
 | `project/<name>/…` | `project-<name>-…` |
 | `student/aura\|grad\|undergrad/<name>` | `student-aura\|grad\|undergrad-<name>` |
@@ -53,6 +54,7 @@ Path with `/` becomes `-` on GitHub.
 | `ops/<tool>` | `ops-<tool>` |
 | `ops/skills` | `skills` |
 
+`<assignment>` is `a1`, `a2`, …; one repo per student per assignment. `final` repos belong to a team.  
 Do **not** put a venue in a research name.  
 Do **not** put a year on a platform.  
 One design repo: `logos/` holds marks only; `slides/` holds the slide skill and keeps its own tokens.
@@ -70,6 +72,7 @@ Today: slide skill `aura-deck` → [`design`](https://github.com/aura-lab-wm/des
 ```
 ops/skills           skills
 ops/reimbursement    ops-reimbursement
+ops/receipts         ops-receipts
 ops/telemetrify      ops-telemetrify
 ops/toast            ops-toast
 ops/key-agent        ops-key-agent
@@ -82,16 +85,16 @@ A hook that exists only to enforce `design` is **identity**, not ops.
 
 1. Run the walk-in test. Do not skip to ops.
 2. Name it from the table.
-3. One GitHub **topic** = the room.
+3. Set its custom properties: `room` always; `course`, `term`, `deliverable`, `owner` for teaching repos.
 4. If it is a skill, follow Skills above.
 
 ## Live map
 
 | Room | Repos |
 |---|---|
-| research | [`research-swebench-dominance`](https://github.com/aura-lab-wm/research-swebench-dominance) |
-| teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + netid copies, [`teaching-genai4se-2026-wifimap`](https://github.com/aura-lab-wm/teaching-genai4se-2026-wifimap) (read-only link from each student repo) |
-| products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron) |
+| research | [`research-swebench-dominance`](https://github.com/aura-lab-wm/research-swebench-dominance), [`finagent-research-workbench`](https://github.com/aura-lab-wm/finagent-research-workbench) |
+| teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + per-assignment student repos, [`harnesslab-workshop`](https://github.com/aura-lab-wm/harnesslab-workshop) |
+| products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron), [`harnesslab`](https://github.com/aura-lab-wm/harnesslab) ([traceharness.dev](https://traceharness.dev)) |
 | people | `student-aura-*` |
-| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design`](https://github.com/aura-lab-wm/design) |
-| ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence) |
+| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design`](https://github.com/aura-lab-wm/design), [`.github`](https://github.com/aura-lab-wm/.github) |
+| ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-receipts`](https://github.com/aura-lab-wm/ops-receipts) |
