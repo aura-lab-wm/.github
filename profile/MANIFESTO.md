@@ -48,16 +48,14 @@ Path with `/` becomes `-` on GitHub.
 | `teaching/coll100/codelab` | `teaching-coll100-codelab` |
 | `project/<name>/…` | `project-<name>-…` |
 | `student/aura\|grad\|undergrad/<name>` | `student-aura\|grad\|undergrad-<name>` |
-| `design/kit` | `design-kit` |
-| `design/kit/logos` | `design-kit-logos` |
-| `aura-deck` | `aura-deck` |
+| `design` (`logos/`, `slides/`) | `design` |
 | `web/<site>` | `web-<site>` |
 | `ops/<tool>` | `ops-<tool>` |
 | `ops/skills` | `skills` |
 
 Do **not** put a venue in a research name.  
 Do **not** put a year on a platform.  
-Kit owns its tokens; aura-deck is self-contained and keeps its own; logos are marks only.
+One design repo: `logos/` holds marks only; `slides/` holds the slide skill and keeps its own tokens.
 
 ## Skills
 
@@ -65,7 +63,7 @@ Kit owns its tokens; aura-deck is self-contained and keeps its own; logos are ma
 
 **Exception:** if the skill *is* the product, it lives in that product. `skills/elsewhere/` keeps the pointer.
 
-Today: slide skill → [`aura-deck`](https://github.com/aura-lab-wm/aura-deck) (`skills/aura-deck/`).
+Today: slide skill `aura-deck` → [`design`](https://github.com/aura-lab-wm/design) (`slides/skills/aura-deck/`).
 
 ## Ops
 
@@ -78,7 +76,7 @@ ops/key-agent        ops-key-agent
 ops/phd-defence      ops-phd-defence
 ```
 
-A hook that exists only to enforce `design-kit` is **identity**, not ops.
+A hook that exists only to enforce `design` is **identity**, not ops.
 
 ## Adding a repo
 
@@ -95,5 +93,5 @@ A hook that exists only to enforce `design-kit` is **identity**, not ops.
 | teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + netid copies, [`teaching-genai4se-2026-wifimap`](https://github.com/aura-lab-wm/teaching-genai4se-2026-wifimap) (read-only link from each student repo) |
 | products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron) |
 | people | `student-aura-*` |
-| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design-kit`](https://github.com/aura-lab-wm/design-kit), [`design-kit-logos`](https://github.com/aura-lab-wm/design-kit-logos), [`aura-deck`](https://github.com/aura-lab-wm/aura-deck) |
+| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design`](https://github.com/aura-lab-wm/design) |
 | ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence) |

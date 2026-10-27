@@ -39,7 +39,7 @@
       <a href="https://github.com/aura-lab-wm/teaching-coll100-codelab"><img src="assets/lane-teaching.png" alt="Teaching — COLL 100 and GenAI for Software Engineering. The platform is codelab.sh." /></a>
     </td>
     <td width="50%" valign="top">
-      <a href="https://github.com/aura-lab-wm/project-rocco-code"><img src="assets/lane-systems.png" alt="Systems — Rocco, AuraCron, design-kit." /></a>
+      <a href="https://github.com/aura-lab-wm/project-rocco-code"><img src="assets/lane-systems.png" alt="Systems — Rocco, AuraCron, design." /></a>
     </td>
   </tr>
 </table>
