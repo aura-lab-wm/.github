@@ -6,10 +6,11 @@ The map is the MANIFESTO's filing order made visible: a repo walks research -> t
 from the GitHub API at run time, so a repo created ten minutes ago is in the map an hour later and
 nobody has to remember to edit a table.
 
-profile/README.md is PUBLIC. In the default `--names public` mode a private repo therefore never
-appears by name or description: it is counted, and nothing else. `--names all` exists because the
+profile/README.md is PUBLIC. The default `--scope public` fetches only public repositories and
+labels the map accordingly. `--scope all` requires a token with metadata access to every org repo;
+private repos are then counted but never named in the default `--names public` mode. `--names all` exists because the
 MANIFESTO's own hand-written map already lists private repo names publicly; use it only if that is
-the intent for this file too. `check_no_private_leak` is the enforcement, and it runs in both modes:
+the intent for this file too. `check_no_private_leak` enforces the public naming mode:
 in `public` it raises rather than emit a private name, so the failure is a red workflow, not a quiet
 disclosure.
 
@@ -20,6 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -43,11 +45,11 @@ ROOMS = [
 UNFILED = "unfiled"
 
 
-def fetch_repos(org: str, token: str) -> list[dict]:
+def fetch_repos(org: str, token: str, scope: str = "public") -> list[dict]:
     out, page = [], 1
     while True:
         req = urllib.request.Request(
-            f"{API}/orgs/{org}/repos?per_page=100&page={page}&type=all&sort=full_name",
+            f"{API}/orgs/{org}/repos?per_page=100&page={page}&type={scope}&sort=full_name",
             headers={"Accept": "application/vnd.github+json", "User-Agent": "aura-repo-map",
                      **({"Authorization": f"Bearer {token}"} if token else {})})
         with urllib.request.urlopen(req, timeout=30) as r:
@@ -83,13 +85,17 @@ def _private_note(n: int) -> str:
     return "" if not n else f"{n} private"
 
 
-def render(org: str, repos: list[dict], names: str, now: str) -> str:
+def render(org: str, repos: list[dict], names: str, now: str, scope: str = "all") -> str:
+    if scope == "public":
+        repos = [r for r in repos if not r["private"]]
     rooms = group(repos)
     public = [r for r in repos if not r["private"]]
     show_private_names = names == "all"
 
     lines = [START, ""]
-    lines.append(f'<p align="center"><sub>REPOSITORY MAP · {len(repos)} repos · {len(public)} public · '
+    title = (f"PUBLIC REPOSITORY MAP · {len(public)} public repos" if scope == "public" else
+             f"REPOSITORY MAP · {len(repos)} repos · {len(public)} public")
+    lines.append(f'<p align="center"><sub>{title} · '
                  f'generated {now} · <a href="MANIFESTO.md">filing rules</a></sub></p>')
     lines.append("")
 
@@ -98,7 +104,7 @@ def render(org: str, repos: list[dict], names: str, now: str) -> str:
     # Labels stay plain text plus <br/>: GitHub's Mermaid does not reliably render other HTML in a
     # node label, and a literal "<b>" on the org's front page is worse than an unbolded word.
     lines += ["```mermaid", "flowchart LR",
-              f'  ORG["{org}<br/>{len(repos)} repos"]']
+              f'  ORG["{org}<br/>{len(repos)} {"public " if scope == "public" else ""}repos"]']
     for key, label, _ in ROOMS + [(UNFILED, UNFILED, None)]:
         rs = rooms.get(key, [])
         if not rs:
@@ -122,7 +128,9 @@ def render(org: str, repos: list[dict], names: str, now: str) -> str:
     lines += ["```", ""]
 
     # The table carries what a diagram cannot: who is public, and when the room last moved.
-    lines += ["| Room | Repos | Public | Private | Last push |", "|---|---:|---|---:|---|"]
+    lines += (["| Room | Public repos | Repositories | Last push |", "|---|---:|---|---|"]
+              if scope == "public" else
+              ["| Room | Repos | Public | Private | Last push |", "|---|---:|---|---:|---|"])
     for key, label, _ in ROOMS + [(UNFILED, UNFILED, None)]:
         rs = rooms.get(key, [])
         if not rs:
@@ -131,15 +139,17 @@ def render(org: str, repos: list[dict], names: str, now: str) -> str:
         priv = [r for r in rs if r["private"]]
         shown = sorted(pub, key=lambda r: r["name"]) if not show_private_names else sorted(rs, key=lambda r: r["name"])
         cell = ", ".join(_link(org, r) for r in shown) or "—"
-        last = max((r["pushed_at"] or "") for r in rs)[:10] or "—"
-        lines.append(f"| **{label}** | {len(rs)} | {cell} | {len(priv)} | {last} |")
+        # The publishing repo's own bot commit is not a change to the map's inputs.
+        last = max((r["pushed_at"] or "" for r in rs if r["name"] != ".github"), default="")[:10] or "—"
+        private_cell = "" if scope == "public" else f" {len(priv)} |"
+        lines.append(f"| **{label}** | {len(rs)} | {cell} |{private_cell} {last} |")
     lines.append("")
     if rooms.get(UNFILED):
         lines.append(f"<sub><b>unfiled</b> names match no rule in the naming table — file them or extend the table.</sub>")
         lines.append("")
-    lines.append(f"<sub>Regenerated hourly by <code>.github/workflows/repo-map.yml</code>. "
-                 f"Private repositories are counted, never named.</sub>" if not show_private_names else
-                 f"<sub>Regenerated hourly by <code>.github/workflows/repo-map.yml</code>.</sub>")
+    note = ("Public repositories only; private repository counts are not included." if scope == "public"
+            else "Private repositories are counted, never named." if not show_private_names else "")
+    lines.append(f"<sub>Checked hourly by <code>.github/workflows/repo-map.yml</code>. {note}</sub>")
     lines += ["", END]
     return "\n".join(lines)
 
@@ -156,14 +166,17 @@ def check_no_private_leak(block: str, repos: list[dict]) -> None:
         if len(desc) > 12 and desc in block:
             leaked.append(f"{r['name']} (description)")
     if leaked:
-        raise SystemExit("refusing to write: private repositories would be named in a public file: "
-                         + ", ".join(sorted(set(leaked))))
+        raise SystemExit("refusing to write: private repository information would appear in a public file")
 
 
 def splice(doc: str, block: str) -> str:
     if START in doc and END in doc:
         head, rest = doc.split(START, 1)
-        _, tail = rest.split(END, 1)
+        old, tail = rest.split(END, 1)
+        # Preserve the generation time when the actual repository map is unchanged.
+        stamp = r"generated [^<\n]+(?= · <a href=\"MANIFESTO.md\")"
+        if re.sub(stamp, "generated", START + old + END) == re.sub(stamp, "generated", block):
+            return doc
         return head + block + tail
     sep = "" if doc.endswith("\n\n") else ("\n" if doc.endswith("\n") else "\n\n")
     return doc + sep + block + "\n"
@@ -173,31 +186,34 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--org", default="aura-lab-wm")
     ap.add_argument("--write", metavar="FILE", help="splice the block into this file (default: print)")
+    ap.add_argument("--scope", choices=("public", "all"), default="public",
+                    help="'public' works with the built-in Actions token; 'all' requires org-wide metadata access")
     ap.add_argument("--names", choices=("public", "all"), default="public",
                     help="'public' (default) names only public repos; 'all' also names private ones")
     ap.add_argument("--now", default=None, help="timestamp override, for tests")
     args = ap.parse_args()
 
     token = os.environ.get("GITHUB_TOKEN", "")
+    if args.scope == "all" and not token:
+        print("--scope all requires a token with metadata access to every organization repository", file=sys.stderr)
+        return 1
     try:
-        repos = fetch_repos(args.org, token)
+        repos = fetch_repos(args.org, token, args.scope)
     except urllib.error.HTTPError as e:
         print(f"GitHub API {e.code}: {e.reason}", file=sys.stderr)
         return 1
-    repos = [r for r in repos if not r.get("archived")]
+    repos = [r for r in repos if not r.get("archived") and (args.scope == "all" or not r["private"])]
     if not repos:
         print("no repositories returned — refusing to write an empty map", file=sys.stderr)
         return 1
 
-    # The public map can only say "1 unfiled"; the names belong in the job log, which only org
-    # members can read, so the drift is actionable without being published.
+    # Actions logs in this public repository are public too: report counts, not private names.
     unfiled = sorted(r["name"] for r in repos if room_of(r["name"]) == UNFILED)
     if unfiled:
-        print(f"unfiled ({len(unfiled)}), not named in the public map: {', '.join(unfiled)}",
-              file=sys.stderr)
+        print(f"unfiled repositories: {len(unfiled)}", file=sys.stderr)
 
     now = args.now or datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    block = render(args.org, repos, args.names, now)
+    block = render(args.org, repos, args.names, now, args.scope)
     if args.names == "public":
         check_no_private_leak(block, repos)
 

@@ -51,7 +51,7 @@ Path with `/` becomes `-` on GitHub.
 | `student/aura\|grad\|undergrad/<name>` | `student-aura\|grad\|undergrad-<name>` |
 | `design/kit` | `design-kit` |
 | `design/kit/logos` | `design-kit-logos` |
-| `design/slides` | `design-slides` |
+| `aura-deck` | `aura-deck` |
 | `web/<site>` | `web-<site>` |
 | `ops/<tool>` | `ops-<tool>` |
 | `ops/skills` | `skills` |
@@ -59,7 +59,7 @@ Path with `/` becomes `-` on GitHub.
 `<assignment>` is `a1`, `a2`, …; one repo per student per assignment. `final` repos belong to a team.  
 Do **not** put a venue in a research name.  
 Do **not** put a year on a platform.  
-Kit owns tokens; slides consume them; logos are marks only.
+Kit owns its tokens; aura-deck is self-contained and keeps its own; logos are marks only.
 
 ## Skills
 
@@ -67,7 +67,7 @@ Kit owns tokens; slides consume them; logos are marks only.
 
 **Exception:** if the skill *is* the product, it lives in that product. `skills/elsewhere/` keeps the pointer.
 
-Today: lecture skill → [`design-slides`](https://github.com/aura-lab-wm/design-slides).
+Today: slide skill → [`aura-deck`](https://github.com/aura-lab-wm/aura-deck) (`skills/aura-deck/`).
 
 ## Ops
 
@@ -98,5 +98,5 @@ A hook that exists only to enforce `design-kit` is **identity**, not ops.
 | teaching | [`teaching-coll100-codelab`](https://github.com/aura-lab-wm/teaching-coll100-codelab), [`teaching-coll100-2026`](https://github.com/aura-lab-wm/teaching-coll100-2026), [`teaching-genai4se-2026`](https://github.com/aura-lab-wm/teaching-genai4se-2026) + per-assignment student repos, [`harnesslab-workshop`](https://github.com/aura-lab-wm/harnesslab-workshop) |
 | products | [`project-rocco-code`](https://github.com/aura-lab-wm/project-rocco-code), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web), [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-auracron`](https://github.com/aura-lab-wm/project-auracron), [`harnesslab`](https://github.com/aura-lab-wm/harnesslab) ([traceharness.dev](https://traceharness.dev)) |
 | people | `student-aura-*` |
-| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design-kit`](https://github.com/aura-lab-wm/design-kit), [`design-kit-logos`](https://github.com/aura-lab-wm/design-kit-logos), [`design-slides`](https://github.com/aura-lab-wm/design-slides), [`.github`](https://github.com/aura-lab-wm/.github) |
+| identity | [`web-auralab`](https://github.com/aura-lab-wm/web-auralab), [`design-kit`](https://github.com/aura-lab-wm/design-kit), [`design-kit-logos`](https://github.com/aura-lab-wm/design-kit-logos), [`aura-deck`](https://github.com/aura-lab-wm/aura-deck), [`.github`](https://github.com/aura-lab-wm/.github) |
 | ops | [`skills`](https://github.com/aura-lab-wm/skills), [`ops-reimbursement`](https://github.com/aura-lab-wm/ops-reimbursement), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast), [`ops-key-agent`](https://github.com/aura-lab-wm/ops-key-agent), [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-receipts`](https://github.com/aura-lab-wm/ops-receipts) |

@@ -87,38 +87,33 @@ Full rules: **[MANIFESTO.md](MANIFESTO.md)**.
 
 <!-- REPO-MAP:START -->
 
-<p align="center"><sub>REPOSITORY MAP · 47 repos · 6 public · generated 2026-09-19 01:18 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
+<p align="center"><sub>PUBLIC REPOSITORY MAP · 7 public repos · generated 2026-10-19 18:36 UTC · <a href="MANIFESTO.md">filing rules</a></sub></p>
 
 ```mermaid
 flowchart LR
-  ORG["aura-lab-wm<br/>47 repos"]
-  ORG --> PEOPLE["people<br/>7 repos · 7 private"]
-  ORG --> RESEARCH["research<br/>1 repo · 1 private"]
-  ORG --> TEACHING["teaching<br/>22 repos · 22 private"]
-  ORG --> PRODUCTS["products<br/>4 repos · 2 public · 2 private"]
+  ORG["aura-lab-wm<br/>7 public repos"]
+  ORG --> PRODUCTS["products<br/>2 repos · 2 public"]
   PRODUCTS --> PRODUCTS_0["project-rocco-student-kit"]
   PRODUCTS --> PRODUCTS_1["project-rocco-web"]
-  ORG --> IDENTITY["identity<br/>5 repos · 1 public · 4 private"]
+  ORG --> IDENTITY["identity<br/>1 repo · 1 public"]
   IDENTITY --> IDENTITY_0[".github"]
-  ORG --> OPS["ops<br/>6 repos · 3 public · 3 private"]
+  ORG --> OPS["ops<br/>3 repos · 3 public"]
   OPS --> OPS_0["ops-phd-defence"]
   OPS --> OPS_1["ops-telemetrify"]
   OPS --> OPS_2["ops-toast"]
-  ORG --> UNFILED["unfiled<br/>2 repos · 2 private"]
+  ORG --> UNFILED["unfiled<br/>1 repo · 1 public"]
+  UNFILED --> UNFILED_0["traceharness"]
 ```
 
-| Room | Repos | Public | Private | Last push |
-|---|---:|---|---:|---|
-| **people** | 7 | — | 7 | 2026-09-15 |
-| **research** | 1 | — | 1 | 2026-09-13 |
-| **teaching** | 22 | — | 22 | 2026-09-18 |
-| **products** | 4 | [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web) | 2 | 2026-09-12 |
-| **identity** | 5 | [`.github`](https://github.com/aura-lab-wm/.github) | 4 | 2026-09-18 |
-| **ops** | 6 | [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast) | 3 | 2026-09-15 |
-| **unfiled** | 2 | — | 2 | 2026-09-18 |
+| Room | Public repos | Repositories | Last push |
+|---|---:|---|---|
+| **products** | 2 | [`project-rocco-student-kit`](https://github.com/aura-lab-wm/project-rocco-student-kit), [`project-rocco-web`](https://github.com/aura-lab-wm/project-rocco-web) | 2026-06-08 |
+| **identity** | 1 | [`.github`](https://github.com/aura-lab-wm/.github) | — |
+| **ops** | 3 | [`ops-phd-defence`](https://github.com/aura-lab-wm/ops-phd-defence), [`ops-telemetrify`](https://github.com/aura-lab-wm/ops-telemetrify), [`ops-toast`](https://github.com/aura-lab-wm/ops-toast) | 2026-07-04 |
+| **unfiled** | 1 | [`traceharness`](https://github.com/aura-lab-wm/traceharness) | 2026-10-19 |
 
 <sub><b>unfiled</b> names match no rule in the naming table — file them or extend the table.</sub>
 
-<sub>Regenerated hourly by <code>.github/workflows/repo-map.yml</code>. Private repositories are counted, never named.</sub>
+<sub>Checked hourly by <code>.github/workflows/repo-map.yml</code>. Public repositories only; private repository counts are not included.</sub>
 
 <!-- REPO-MAP:END -->
